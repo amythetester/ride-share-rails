@@ -134,3 +134,51 @@ Migrating to CreateTrips (20190415224950)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3304801670023176435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTrips (20190415224950)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (48.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "date" date, "rating" integer, "cost" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190415224950_create_trips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190415224950"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddForeignKeysToTrips (20190415225930)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "trips" ADD "passenger_id" bigint[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_trips_on_passenger_id" ON "trips"  ("passenger_id")[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:3
+  [1m[35m (7.5ms)[0m  [1m[35mALTER TABLE "trips" ADD CONSTRAINT "fk_rails_a3e4ffd914"
+FOREIGN KEY ("passenger_id")
+  REFERENCES "passengers" ("id")
+[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "trips" ADD "driver_id" bigint[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:4
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_trips_on_driver_id" ON "trips"  ("driver_id")[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:4
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "trips" ADD CONSTRAINT "fk_rails_e7560abc33"
+FOREIGN KEY ("driver_id")
+  REFERENCES "drivers" ("id")
+[0m
+  ↳ db/migrate/20190415225930_add_foreign_keys_to_trips.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190415225930"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3304801670023176435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
