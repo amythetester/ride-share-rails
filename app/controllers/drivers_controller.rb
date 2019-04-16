@@ -11,4 +11,14 @@ class DriversController < ApplicationController
       head :not_found
     end
   end
+
+  def new
+    @driver = Driver.new(name: "Default Name")
+  end
+
+  private
+
+  def driver_params
+    return params.require(:driver).permit(:name, :vin)
+  end
 end
