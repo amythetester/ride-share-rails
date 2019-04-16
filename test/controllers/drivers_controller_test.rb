@@ -157,15 +157,16 @@ describe DriversController do
 
   describe "destroy" do
     it "returns a 404 if the book is not found" do
+      # Arrange
       invalid_id = "NOT A VALID ID"
 
-      # Act
-      # Try to do the Books#destroy action
+      expect {
+        # Act
+        delete driver_path(invalid_id)
+        # Assert
+      }.wont_change "Driver.count"
 
-      # Assert
-      # Should respond with not found
-      # The count will change by 0, i.e. won't change
-
+      must_respond_with :not_found
     end
 
     it "can delete a book" do
