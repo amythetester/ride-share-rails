@@ -88,7 +88,67 @@ describe DriversController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "will update an existing driver" do
+      # Arrange
+      starter_input = {
+        name: "Sue Zan",
+        vin: "0987654321",
+      }
+
+      driver_to_update = Driver.create(starter_input)
+
+      input_name = "Sue Johnson"
+      input_vin = "0987654321"
+      test_input = {
+        "driver": {
+          name: input_name,
+          vin: input_vin,
+        },
+      }
+
+      # Act
+      expect {
+        patch driver_path(driver_to_update.id), params: test_input
+      }.wont_change "Driver.count"
+
+      # Assert
+      must_respond_with :redirect
+      driver_to_update.reload
+      expect(driver_to_update.name).must_equal test_input[:driver][:name]
+      expect(driver_to_update.vin).must_equal test_input[:driver][:vin]
+    end
+
+    it "will return a bad_request (400) when asked to update with invalid data" do
+      # Arrange
+      starter_input = {
+        name: "Sue Zan",
+        vin: "0987654321",
+      }
+
+      driver_to_update = Driver.create(starter_input)
+
+      input_name = ""
+      input_vin = "0987654321"
+      test_input = {
+        "driver": {
+          name: input_name,
+          vin: input_vin,
+        },
+      }
+
+      # Act
+      expect {
+        patch driver_path(driver_to_update.id), params: test_input
+      }.wont_change "Driver.count"
+
+      # Assert
+      must_respond_with :bad_request
+      driver_to_update.reload
+      expect(driver_to_update.name).must_equal starter_input[:name]
+      expect(driver_to_update.vin).must_equal starter_input[:vin]
+    end
+
+    # edge case: it should render a 404 if the book was not found
   end
 
   describe "update" do
