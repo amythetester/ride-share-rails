@@ -2,7 +2,10 @@ require "test_helper"
 
 describe PassengersController do
   describe "index" do
-    # Your tests go here
+    it "lists all existing passengers" do
+      get passengers_path
+      must_respond_with :success
+    end
   end
 
   describe "show" do
