@@ -1,4 +1,5 @@
 require "test_helper"
+require "pry"
 
 describe PassengersController do
   describe "index" do
@@ -72,7 +73,58 @@ describe PassengersController do
   end
 
   describe "update" do
-    # Your tests go here
+    it "will update an existing passenger" do
+      starter_input = {
+        name: "Minnie",
+        phone_num: "206-456-7890",
+      }
+
+      passenger_to_update = Passenger.create(starter_input)
+
+      test_input = {
+        "passenger": {
+          name: "Minnie Mouse",
+          phone_num: "206-456-7890",
+        },
+      }
+
+      expect {
+        patch passenger_path(passenger_to_update.id), params: test_input
+      }.wont_change "Passenger.count"
+
+      must_respond_with :redirect
+
+      passenger_to_update.reload
+      expect(passenger_to_update.name).must_equal "Minnie Mouse"
+      expect(passenger_to_update.phone_num).must_equal "206-456-7890"
+    end
+
+    it "will return a bad_request (400) when asked to update with invalid data" do
+      starter_input = {
+        name: "Daisy",
+        phone_num: "425-737-6510",
+      }
+
+      passenger_to_update = Passenger.create(starter_input)
+
+      test_input = {
+        "passenger": {
+          name: "",
+          phone_num: "425-737-6510",
+        },
+      }
+
+      expect {
+        patch passenger_path(passenger_to_update.id), params: test_input
+      }.wont_change "Passenger.count"
+
+      must_respond_with :bad_request
+      passenger_to_update.reload
+      expect(passenger_to_update.name).must_equal starter_input[:name]
+      expect(passenger_to_update.phone_num).must_equal starter_input[:phone_num]
+    end
+
+    # edge case: it should render a 404 if the book was not found
   end
 
   describe "destroy" do
