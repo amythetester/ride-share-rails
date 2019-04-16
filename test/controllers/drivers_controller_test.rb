@@ -88,6 +88,10 @@ describe DriversController do
   end
 
   describe "edit" do
+    # Your tests go here
+  end
+
+  describe "update" do
     it "will update an existing driver" do
       # Arrange
       starter_input = {
@@ -151,11 +155,33 @@ describe DriversController do
     # edge case: it should render a 404 if the book was not found
   end
 
-  describe "update" do
-    # Your tests go here
-  end
-
   describe "destroy" do
-    # Your tests go here
+    it "returns a 404 if the book is not found" do
+      invalid_id = "NOT A VALID ID"
+
+      # Act
+      # Try to do the Books#destroy action
+
+      # Assert
+      # Should respond with not found
+      # The count will change by 0, i.e. won't change
+
+    end
+
+    it "can delete a book" do
+      # Arrange - Create a book
+      new_driver = Driver.create(name: "David Tuo", vin: "7684938476")
+
+      expect {
+
+        # Act
+        delete driver_path(new_driver.id)
+
+        # Assert
+      }.must_change "Driver.count", -1
+
+      must_respond_with :redirect
+      must_redirect_to drivers_path
+    end
   end
 end
