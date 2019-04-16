@@ -31,7 +31,40 @@ describe PassengersController do
   end
 
   describe "create" do
-    # Your tests go here
+    it "will save a new passenger and redirect if given valid inputs" do
+      test_input = {
+        "passenger": {
+          name: "Goofy",
+          phone_num: "206-123-4567",
+        },
+      }
+
+      expect {
+        post passengers_path, params: test_input
+      }.must_change "Passenger.count", 1
+
+      new_passenger = Passenger.find_by(name: "Goofy")
+      expect(new_passenger).wont_be_nil
+      expect(new_passenger.name).must_equal "Goofy"
+      expect(new_passenger.phone_num).must_equal "206-123-4567"
+
+      must_respond_with :redirect
+    end
+
+    it "will return a 400 with an invalid entry" do
+      test_input = {
+        "passenger": {
+          name: "Donald",
+          phone_num: "",
+        },
+      }
+
+      expect {
+        post passengers_path, params: test_input
+      }.wont_change "Passenger.count"
+
+      must_respond_with :bad_request
+    end
   end
 
   describe "edit" do

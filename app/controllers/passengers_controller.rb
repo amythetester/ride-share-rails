@@ -15,6 +15,18 @@ class PassengersController < ApplicationController
     @passenger = Passenger.new
   end
 
+  def create
+    @passenger = Passenger.new(passenger_params)
+
+    is_successful = @passenger.save
+
+    if is_successful
+      redirect_to passenger_path(@passenger.id)
+    else
+      render :new, status: :bad_request
+    end
+  end
+
   private
 
   def passenger_params
