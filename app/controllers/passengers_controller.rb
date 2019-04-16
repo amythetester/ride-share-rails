@@ -10,4 +10,14 @@ class PassengersController < ApplicationController
       head :not_found
     end
   end
+
+  def new
+    @passenger = Passenger.new
+  end
+
+  private
+
+  def passenger_params
+    return params.require(:passenger).permit(:name, :phone_num)
+  end
 end
