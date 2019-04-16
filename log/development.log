@@ -8752,3 +8752,26 @@ Processing by PassengersController#index as HTML
 Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/" for ::1 at 2019-04-16 16:55:23 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomepagesController#index as HTML
+Completed 406 Not Acceptable in 141ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - HomepagesController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/3bddc0533765a74e/variables" for ::1 at 2019-04-16 16:55:24 -0700
+Started GET "/" for ::1 at 2019-04-16 16:56:01 -0700
+Processing by HomepagesController#index as HTML
+  Rendering homepages/index.html.erb within layouts/application
+  Rendered homepages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 496ms (Views: 491.7ms | ActiveRecord: 0.0ms)
+
+
