@@ -6,6 +6,22 @@
   <%= @driver.vin %>
 </h3>
 
+<ul>
+<% trips = Trip.where(driver_id: @driver.id) %>
+<% if trips %>
+  <% trips.each do |trip| %>
+    <li>
+      <%= link_to trip.id,  driver_trip_path(@driver.id, trip.id) %>
+      <%= trip.date %>
+      <%= Driver.find_by(id: trip.driver_id).name %>
+      <%= Passenger.find_by(id: trip.passenger_id).name %>
+      <%= trip.cost %>
+      <%= trip.rating %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
 <%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
 <%= link_to "Back to All Drivers", drivers_path %>
 <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete %>
