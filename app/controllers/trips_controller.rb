@@ -11,6 +11,18 @@ class TripsController < ApplicationController
     @trip = Trip.new(date: Date.current)
   end
 
+  def create
+    @trip = Trip.new(trip_params)
+
+    is_successful = @trip.save
+
+    if is_successful
+      redirect_to trip_path(@trip.id)
+    else
+      render :new, status: :bad_request
+    end
+  end
+
   private
 
   def trip_params
