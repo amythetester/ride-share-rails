@@ -28,7 +28,11 @@ describe PassengersController do
   end
 
   describe "new" do
-    # Your tests go here
+    it "should get new" do
+      get new_passenger_path
+
+      must_respond_with :success
+    end
   end
 
   describe "create" do
@@ -69,7 +73,17 @@ describe PassengersController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "should get edit" do
+      get edit_passenger_path(Passenger.first.id)
+
+      must_respond_with :success
+    end
+
+    it "should respond with 404 if the passenger doesn't exist" do
+      get edit_passenger_path(-1)
+
+      must_respond_with :not_found
+    end
   end
 
   describe "update" do
