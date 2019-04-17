@@ -1,6 +1,13 @@
 require "test_helper"
 
 describe TripsController do
+  describe "index" do
+    it "should get index" do
+      get trips_path
+      must_respond_with :success
+    end
+  end
+
   describe "show" do
     it "should be OK to show an existing, valid trip" do
       test_p = Passenger.create(name: "test passenger", phone_num: "206-xxx-xxxx")

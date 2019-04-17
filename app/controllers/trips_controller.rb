@@ -1,4 +1,12 @@
 class TripsController < ApplicationController
+  def index
+    if params[:driver_id]
+      @trips = Trip.where(driver: Driver.find_by(id: params[:driver_id]))
+    elsif params[:passenger_id]
+      @trips = Trip.where(passenger: Passenger.find_by(id: params[:passenger_id]))
+    end
+  end
+
   def show
     trip_id = params[:id]
     @trip = Trip.find_by(id: trip_id)
