@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root to: ""
+  root to: "homepage#index"
   resources :passengers
   resources :drivers
   resources :trips
