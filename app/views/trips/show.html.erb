@@ -1,0 +1,8 @@
+<ul>
+  <li><%= @trip.id %></li>
+  <li><%= @trip.date %></li>
+  <li><%= Driver.find_by(id: @trip.driver_id).name %></li>
+  <li><%= Passenger.find_by(id: @trip.passenger_id).name %></li>
+  <li><%= @trip.cost %></li>
+  <li><%= @trip.rating %></li>
+</ul>

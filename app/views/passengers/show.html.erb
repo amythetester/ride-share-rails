@@ -21,6 +21,22 @@
   <% end %>
 </h3>
 
+<ul>
+<% trips = Trip.where(passenger_id: @passenger.id) %>
+<% if trips %>
+  <% trips.each do |trip| %>
+    <li>
+      <%= link_to trip.id,  passenger_trip_path(@passenger.id, trip.id) %>
+      <%= trip.date %>
+      <%= Driver.find_by(id: trip.driver_id).name %>
+      <%= Passenger.find_by(id: trip.passenger_id).name %>
+      <%= trip.cost %>
+      <%= trip.rating %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
 <%= link_to "Back to All Passengers", passengers_path %>
 
 <%= link_to "Edit", edit_passenger_path(@passenger.id) %>

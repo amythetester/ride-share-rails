@@ -27223,3 +27223,856 @@ Processing by TripsController#index as HTML
 Completed 200 OK in 60ms (Views: 50.0ms | ActiveRecord: 4.9ms)
 
 
+Started GET "/passengers" for ::1 at 2019-04-17 14:40:16 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (4.3ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 81ms (Views: 74.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 14:40:18 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.7ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 67ms (Views: 60.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 14:41:12 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.7ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 51ms (Views: 44.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 14:41:56 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (3.6ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 78ms (Views: 69.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 14:41:58 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (67.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 108ms (Views: 34.2ms | ActiveRecord: 67.4ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 14:42:00 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (3.8ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 66ms (Views: 59.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 14:42:29 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  Rendered passengers/show.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130063004520'
+
+Started POST "/__better_errors/6e24790bc5245a64/variables" for ::1 at 2019-04-17 14:42:29 -0700
+Started POST "/__better_errors/6e24790bc5245a64/eval" for ::1 at 2019-04-17 14:42:40 -0700
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:31:50 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.6ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 83ms (Views: 45.3ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:31:55 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (3.4ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 57ms (Views: 49.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:31:57 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (69.8ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 122ms (Views: 47.6ms | ActiveRecord: 70.3ms)
+
+
+Started GET "/drivers" for ::1 at 2019-04-17 15:31:59 -0700
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/application
+  [1m[36mDriver Load (2.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" ORDER BY "drivers"."name" ASC[0m
+  ↳ app/views/drivers/index.html.erb:4
+  Rendered drivers/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 84ms (Views: 52.0ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/drivers/20" for ::1 at 2019-04-17 15:32:00 -0700
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mDriver Load (2.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/drivers_controller.rb:8
+  Rendering drivers/show.html.erb within layouts/application
+  Rendered drivers/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 78ms (Views: 30.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:32:02 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (79.6ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (106.3ms)
+Completed 200 OK in 148ms (Views: 62.9ms | ActiveRecord: 79.6ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:32:03 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (54.6ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 96ms (Views: 35.9ms | ActiveRecord: 55.0ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:32:53 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.9ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 59ms (Views: 29.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:32:55 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:32:57 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (4.0ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 68ms (Views: 58.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/passengers/227" for ::1 at 2019-04-17 15:32:59 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"227"}
+  [1m[36mPassenger Load (4.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 227], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 227], ["passenger_id", 227]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 33.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/drivers" for ::1 at 2019-04-17 15:33:02 -0700
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/application
+  [1m[36mDriver Load (1.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" ORDER BY "drivers"."name" ASC[0m
+  ↳ app/views/drivers/index.html.erb:4
+  Rendered drivers/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 63ms (Views: 48.5ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/drivers/94" for ::1 at 2019-04-17 15:33:03 -0700
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"94"}
+  [1m[36mDriver Load (43.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/controllers/drivers_controller.rb:8
+  Rendering drivers/show.html.erb within layouts/application
+  Rendered drivers/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 93ms (Views: 43.6ms | ActiveRecord: 43.2ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:33:07 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (3.6ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 66ms (Views: 59.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:34:01 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  Rendered passengers/show.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130045553200'
+
+Started POST "/__better_errors/db1ad036363f0cda/variables" for ::1 at 2019-04-17 15:34:01 -0700
+Started POST "/__better_errors/db1ad036363f0cda/eval" for ::1 at 2019-04-17 15:35:26 -0700
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:35:39 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.1ms)
+
+
+
+RuntimeError - :
+  app/controllers/passengers_controller.rb:9:in `show'
+
+Started POST "/__better_errors/2acf6bb5be4f3ffa/variables" for ::1 at 2019-04-17 15:35:40 -0700
+Started POST "/__better_errors/2acf6bb5be4f3ffa/eval" for ::1 at 2019-04-17 15:35:50 -0700
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/2acf6bb5be4f3ffa/eval" for ::1 at 2019-04-17 15:35:58 -0700
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2 LIMIT $3[0m  [["passenger_id", 48], ["passenger_id", 48], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:37:04 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 68ms (Views: 44.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:37:06 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (6.5ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 101ms (Views: 89.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:37:08 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:37:18 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 4.7ms)
+
+
+
+RuntimeError - :
+  app/controllers/passengers_controller.rb:9:in `show'
+
+Started POST "/__better_errors/9c7dc662d44f2492/variables" for ::1 at 2019-04-17 15:37:18 -0700
+Started POST "/__better_errors/9c7dc662d44f2492/eval" for ::1 at 2019-04-17 15:37:31 -0700
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/9c7dc662d44f2492/eval" for ::1 at 2019-04-17 15:37:44 -0700
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:9
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:39:11 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:9
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" IS NULL[0m
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 91ms (Views: 59.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:40:13 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  [1m[36mPassenger Load (2.1ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:9
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" IS NULL[0m
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 88ms (Views: 56.1ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:40:17 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (3.3ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 74ms (Views: 66.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:40:19 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  [1m[36mPassenger Load (1.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:9
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" IS NULL[0m
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 45ms (Views: 37.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:41:55 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  Rendered passengers/show.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 4.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130061424100'
+
+Started POST "/__better_errors/ff19095c7bb06bd4/variables" for ::1 at 2019-04-17 15:41:55 -0700
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:43:30 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 69ms (Views: 61.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 15:43:33 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (5.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 61ms (Views: 51.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:43:35 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (73.7ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 121ms (Views: 42.6ms | ActiveRecord: 74.0ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:43:46 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 41ms (Views: 37.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:43:50 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 AND "trips"."passenger_id" = $2[0m  [["passenger_id", 48], ["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 41.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:52:48 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.6ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 59ms (Views: 53.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:53:03 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130090650900'
+
+Started POST "/__better_errors/5b440ff1c949b2a0/variables" for ::1 at 2019-04-17 15:53:04 -0700
+Started POST "/__better_errors/5b440ff1c949b2a0/eval" for ::1 at 2019-04-17 15:53:29 -0700
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started POST "/__better_errors/5b440ff1c949b2a0/eval" for ::1 at 2019-04-17 15:53:33 -0700
+Started POST "/__better_errors/5b440ff1c949b2a0/eval" for ::1 at 2019-04-17 15:54:20 -0700
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:54:59 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130105076700'
+
+Started POST "/__better_errors/91f35c13432f9d35/variables" for ::1 at 2019-04-17 15:54:59 -0700
+Started POST "/__better_errors/91f35c13432f9d35/eval" for ::1 at 2019-04-17 15:55:07 -0700
+Started GET "/passengers/48" for ::1 at 2019-04-17 15:55:23 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (2.1ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+  Rendered passengers/show.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 2.5ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/passengers/show.html.erb:25:in `_app_views_passengers_show_html_erb__3464995584767271449_70130090883360'
+
+Started POST "/__better_errors/a42e06f64966c283/variables" for ::1 at 2019-04-17 15:55:23 -0700
+Started POST "/__better_errors/a42e06f64966c283/eval" for ::1 at 2019-04-17 15:56:13 -0700
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 48], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started POST "/__better_errors/a42e06f64966c283/eval" for ::1 at 2019-04-17 15:56:24 -0700
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started POST "/__better_errors/a42e06f64966c283/eval" for ::1 at 2019-04-17 15:56:44 -0700
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 3], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started POST "/__better_errors/a42e06f64966c283/eval" for ::1 at 2019-04-17 15:57:13 -0700
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 4], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:25
+Started POST "/__better_errors/a42e06f64966c283/eval" for ::1 at 2019-04-17 16:00:00 -0700
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 4], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/passengers/48" for ::1 at 2019-04-17 16:02:08 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mPassenger Load (0.7ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 48]]
+  ↳ app/views/passengers/show.html.erb:27
+  Rendered passengers/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 76ms (Views: 69.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 16:02:12 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (4.3ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 65ms (Views: 56.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/passengers/185" for ::1 at 2019-04-17 16:02:14 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"185"}
+  [1m[36mPassenger Load (49.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 185]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 131ms (Views: 64.2ms | ActiveRecord: 54.5ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 16:02:31 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (66.4ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (104.6ms)
+Completed 200 OK in 160ms (Views: 88.6ms | ActiveRecord: 66.4ms)
+
+
+Started GET "/passengers/86" for ::1 at 2019-04-17 16:02:33 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"86"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 86]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (1.5ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 55ms (Views: 47.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 16:02:41 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (94.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (125.5ms)
+Completed 200 OK in 168ms (Views: 69.0ms | ActiveRecord: 94.1ms)
+
+
+Started GET "/passengers/257" for ::1 at 2019-04-17 16:02:44 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"257"}
+  [1m[36mPassenger Load (45.7ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 97ms (Views: 45.2ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/passengers/257" for ::1 at 2019-04-17 16:05:48 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"257"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/passengers/show.html.erb:27
+  Rendered passengers/show.html.erb within layouts/application (250.9ms)
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `passenger_trips' for #<#<Class:0x00007f90dacc5bd8>:0x00007f90de582188>
+Did you mean?  passenger_trips_url
+               passenger_url:
+  app/views/passengers/show.html.erb:29:in `block in _app_views_passengers_show_html_erb__3464995584767271449_70130091169100'
+  app/views/passengers/show.html.erb:27:in `_app_views_passengers_show_html_erb__3464995584767271449_70130091169100'
+
+Started POST "/__better_errors/c9415af6699fb9c9/variables" for ::1 at 2019-04-17 16:05:49 -0700
+Started GET "/passengers/257" for ::1 at 2019-04-17 16:06:08 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"257"}
+  [1m[36mPassenger Load (1.6ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 49ms (Views: 40.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/passengers/257/trips" for ::1 at 2019-04-17 16:06:10 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"passenger_id"=>"257"}
+  [1m[36mPassenger Load (1.1ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:6
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:6
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/trips/index.html.erb:10
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  Rendered trips/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 69ms (Views: 53.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/passengers/257/trips" for ::1 at 2019-04-17 16:06:19 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"passenger_id"=>"257"}
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:6
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:6
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/trips/index.html.erb:10
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mDriver Load (0.5ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  Rendered trips/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 48ms (Views: 40.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/passengers/257" for ::1 at 2019-04-17 16:07:55 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"257"}
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (2.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 106ms (Views: 74.0ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/passengers/257/trips/25" for ::1 at 2019-04-17 16:07:58 -0700
+Processing by TripsController#show as HTML
+  Parameters: {"passenger_id"=>"257", "id"=>"25"}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:12
+  Rendering trips/show.html.erb within layouts/application
+  Rendered trips/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 33.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/passengers/257" for ::1 at 2019-04-17 16:13:43 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"257"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 257]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.7ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 90ms (Views: 62.2ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/passengers/257/trips/25" for ::1 at 2019-04-17 16:13:44 -0700
+Processing by TripsController#show as HTML
+  Parameters: {"passenger_id"=>"257", "id"=>"25"}
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:12
+  Rendering trips/show.html.erb within layouts/application
+  Rendered trips/show.html.erb within layouts/application (10.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `name' for #<Trip:0x00007f90d8b23228>:
+  app/views/trips/show.html.erb:2:in `_app_views_trips_show_html_erb___494634780136047585_70130043782020'
+
+Started POST "/__better_errors/c8778de0340b1d97/variables" for ::1 at 2019-04-17 16:13:45 -0700
+Started POST "/__better_errors/c8778de0340b1d97/eval" for ::1 at 2019-04-17 16:14:28 -0700
+Started POST "/__better_errors/c8778de0340b1d97/eval" for ::1 at 2019-04-17 16:14:48 -0700
+Started POST "/__better_errors/c8778de0340b1d97/eval" for ::1 at 2019-04-17 16:15:25 -0700
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/trips/show.html.erb:2
+Started POST "/__better_errors/c8778de0340b1d97/eval" for ::1 at 2019-04-17 16:15:38 -0700
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/trips/show.html.erb:2
+Started GET "/passengers/257/trips/25" for ::1 at 2019-04-17 16:16:29 -0700
+Processing by TripsController#show as HTML
+  Parameters: {"passenger_id"=>"257", "id"=>"25"}
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:12
+  Rendering trips/show.html.erb within layouts/application
+  Rendered trips/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `name' for #<Trip:0x00007f90de48cc10>:
+  app/views/trips/show.html.erb:2:in `_app_views_trips_show_html_erb___494634780136047585_70130090653200'
+
+Started POST "/__better_errors/d045bd10d0a9ea29/variables" for ::1 at 2019-04-17 16:16:30 -0700
+Started GET "/passengers/257/trips/25" for ::1 at 2019-04-17 16:17:18 -0700
+Processing by TripsController#show as HTML
+  Parameters: {"passenger_id"=>"257", "id"=>"25"}
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:12
+  Rendering trips/show.html.erb within layouts/application
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/trips/show.html.erb:4
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  ↳ app/views/trips/show.html.erb:5
+  Rendered trips/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 47ms (Views: 41.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/passengers" for ::1 at 2019-04-17 16:17:25 -0700
+Processing by PassengersController#index as HTML
+  Rendering passengers/index.html.erb within layouts/application
+  [1m[36mPassenger Load (46.7ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."name" ASC[0m
+  ↳ app/views/passengers/index.html.erb:4
+  Rendered passengers/index.html.erb within layouts/application (81.5ms)
+Completed 200 OK in 127ms (Views: 74.2ms | ActiveRecord: 46.7ms)
+
+
+Started GET "/passengers/69" for ::1 at 2019-04-17 16:17:27 -0700
+Processing by PassengersController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mPassenger Load (42.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:8
+  Rendering passengers/show.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 69]]
+  ↳ app/views/passengers/show.html.erb:27
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:31
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/views/passengers/show.html.erb:32
+  Rendered passengers/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 93ms (Views: 43.6ms | ActiveRecord: 43.4ms)
+
+
