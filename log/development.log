@@ -26943,3 +26943,283 @@ Started POST "/__better_errors/e6e56668a28ecb91/variables" for ::1 at 2019-04-17
 Started POST "/__better_errors/e6e56668a28ecb91/eval" for ::1 at 2019-04-17 12:48:21 -0700
   [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/views/trips/index.html.erb:9
+Started GET "/" for ::1 at 2019-04-17 14:19:53 -0700
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomepagesController#index as HTML
+  Rendering homepages/index.html.erb within layouts/application
+  Rendered homepages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 295ms (Views: 288.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2019-04-17 14:20:01 -0700
+Processing by TripsController#index as HTML
+  Rendering trips/index.html.erb within layouts/application
+  Rendered trips/index.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/trips/index.html.erb:4:in `_app_views_trips_index_html_erb___1198579512624426547_70130062855620'
+
+Started POST "/__better_errors/743d9d8b02e83f5b/variables" for ::1 at 2019-04-17 14:20:02 -0700
+Started GET "/drivers/2/trips" for ::1 at 2019-04-17 14:21:11 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"driver_id"=>"2"}
+  [1m[36mDriver Load (1.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:4
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (42.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."driver_id" = $1[0m  [["driver_id", 2]]
+  ↳ app/views/trips/index.html.erb:4
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 206], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 263], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 233], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 191], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 200], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  Rendered trips/index.html.erb within layouts/application (86.4ms)
+Completed 200 OK in 202ms (Views: 85.8ms | ActiveRecord: 59.2ms)
+
+
+Started GET "/drivers/2/trips" for ::1 at 2019-04-17 14:21:35 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"driver_id"=>"2"}
+  [1m[36mDriver Load (0.7ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:4
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."driver_id" = $1[0m  [["driver_id", 2]]
+  ↳ app/views/trips/index.html.erb:4
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 206], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 263], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 233], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 191], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 200], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  Rendered trips/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 70ms (Views: 60.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/passengers/2/trips" for ::1 at 2019-04-17 14:22:05 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"passenger_id"=>"2"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:6
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (41.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 2]]
+  ↳ app/views/trips/index.html.erb:4
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:8
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:9
+  Rendered trips/index.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 88ms (Views: 36.5ms | ActiveRecord: 42.5ms)
+
+
+Started GET "/passengers/2/trips" for ::1 at 2019-04-17 14:26:23 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"passenger_id"=>"2"}
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:6
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered trips/index.html.erb within layouts/application (464.1ms)
+Completed 500 Internal Server Error in 473ms (ActiveRecord: 0.9ms)
+
+
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+
+NameError - undefined local variable or method `trip' for #<#<Class:0x00007f90daf81390>:0x00007f90d9f90508>
+Did you mean?  @trips
+               trap:
+  app/views/trips/index.html.erb:6:in `_app_views_trips_index_html_erb___1198579512624426547_70130054498260'
+
+Started POST "/__better_errors/6d11c00ffea08250/variables" for ::1 at 2019-04-17 14:26:24 -0700
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.1ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.1ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Trip Load (0.0ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1 LIMIT $2[0m  [["passenger_id", 2], ["LIMIT", 11]]
+  ↳ /Users/elisepham/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/passengers/2/trips" for ::1 at 2019-04-17 14:27:12 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"passenger_id"=>"2"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:6
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mCACHE Passenger Load (0.0ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:6
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passenger_id" = $1[0m  [["passenger_id", 2]]
+  ↳ app/views/trips/index.html.erb:10
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  Rendered trips/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/drivers/2/trips" for ::1 at 2019-04-17 14:27:32 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"driver_id"=>"2"}
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:4
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:2
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."driver_id" = $1[0m  [["driver_id", 2]]
+  ↳ app/views/trips/index.html.erb:10
+  [1m[36mDriver Load (0.7ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.9ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 206], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 263], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 233], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 191], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 200], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  [1m[36mCACHE Driver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:14
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT  "passengers".* FROM "passengers" WHERE "passengers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  ↳ app/views/trips/index.html.erb:15
+  Rendered trips/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 60ms (Views: 50.0ms | ActiveRecord: 4.9ms)
+
+
