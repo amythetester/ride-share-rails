@@ -105,7 +105,69 @@ describe TripsController do
   end
 
   describe "update" do
-    # Your tests go here
+    it "will update an existing driver" do
+      starter_input = {
+        date: Date.parse("2019-05-04"),
+        driver_id: Driver.create(name: "test name", vin: "test vin").id,
+        passenger_id: Passenger.create(name: "test name", phone_num: "test phone num").id,
+        cost: 3456,
+        rating: 4,
+      }
+
+      trip_to_update = Trip.create(starter_input)
+
+      input_date = Date.parse("2019-05-07")
+      input_cost = 4567
+      test_input = {
+        "trip": {
+          date: input_date,
+          cost: input_cost,
+        },
+      }
+
+      expect {
+        patch trip_path(trip_to_update.id), params: test_input
+      }.wont_change "Trip.count"
+
+      must_respond_with :redirect
+      trip_to_update.reload
+      expect(trip_to_update.date).must_equal test_input[:trip][:date]
+      expect(trip_to_update.cost).must_equal test_input[:trip][:cost]
+    end
+
+    it "will return a bad_request (400) when asked to update with invalid data" do
+      starter_input = {
+        date: Date.parse("2019-05-04"),
+        driver_id: Driver.create(name: "test name", vin: "test vin").id,
+        passenger_id: Passenger.create(name: "test name", phone_num: "test phone num").id,
+        cost: 3456,
+        rating: 4,
+      }
+
+      trip_to_update = Trip.create(starter_input)
+
+      input_date = "invalid date"
+      input_cost = "invalid cost"
+      test_input = {
+        "trip": {
+          date: input_date,
+          cost: input_cost,
+        },
+      }
+
+      # Act
+      expect {
+        patch trip_path(trip_to_update.id), params: test_input
+      }.wont_change "Trip.count"
+
+      # Assert
+      must_respond_with :bad_request
+      trip_to_update.reload
+      expect(trip_to_update.date).must_equal starter_input[:date]
+      expect(trip_to_update.cost).must_equal starter_input[:cost]
+    end
+
+    # edge case: it should render a 404 if the book was not found
   end
 
   describe "destroy" do
