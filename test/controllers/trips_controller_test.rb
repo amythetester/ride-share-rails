@@ -26,15 +26,23 @@ describe TripsController do
     end
   end
 
+  describe "new" do
+    it "should get new" do
+      get new_trip_path
+
+      must_respond_with :success
+    end
+  end
+
+  describe "create" do
+    # Your tests go here
+  end
+
   describe "edit" do
     # Your tests go here
   end
 
   describe "update" do
-    # Your tests go here
-  end
-
-  describe "create" do
     # Your tests go here
   end
 
