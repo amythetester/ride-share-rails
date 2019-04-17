@@ -1,0 +1,28 @@
+<h2>
+  <%= @passenger.name %>
+</h2>
+
+<h3>
+  <% arr = @passenger.phone_num.split("x") %>
+  <% str = "" %>
+  <% arr[0].each_char { |c| %>
+    <% if c =~ /\d/ %>
+      <% str << c %>
+    <% end %>
+  <% } %>
+  <% if str.length == 11 %>
+    <% str = str[1..10] %>
+  <% end %>
+  <% if arr.length == 1 %>
+    <%= number_to_phone(str, area_code: true, country_code: 1) %>
+  <% end %>
+  <% if arr.length == 2 %>
+    <%= number_to_phone(str, area_code: true, country_code: 1, extension: arr[1]) %>
+  <% end %>
+</h3>
+
+<%= link_to "Back to All Passengers", passengers_path %>
+
+<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+
+<%= link_to "Delete", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
