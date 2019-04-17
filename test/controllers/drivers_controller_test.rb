@@ -37,7 +37,11 @@ describe DriversController do
   end
 
   describe "new" do
-    # Your tests go here
+    it "should get new" do
+      get new_driver_path
+
+      must_respond_with :success
+    end
   end
 
   describe "create" do
@@ -88,7 +92,17 @@ describe DriversController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "should get edit" do
+      get edit_driver_path(Driver.first.id)
+
+      must_respond_with :success
+    end
+
+    it "should respond with 404 if the driver doesn't exist" do
+      get edit_driver_path(-1)
+
+      must_respond_with :not_found
+    end
   end
 
   describe "update" do
