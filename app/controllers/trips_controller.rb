@@ -23,6 +23,14 @@ class TripsController < ApplicationController
     end
   end
 
+  def edit
+    @trip = Trip.find_by(id: params[:id])
+
+    if @trip.nil?
+      head :not_found
+    end
+  end
+
   private
 
   def trip_params
