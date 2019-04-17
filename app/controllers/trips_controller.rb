@@ -44,6 +44,17 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find_by(id: params[:id])
+
+    if trip.nil?
+      head :not_found
+    else
+      trip.destroy
+      redirect_back fallback_location: root_path
+    end
+  end
+
   private
 
   def trip_params
