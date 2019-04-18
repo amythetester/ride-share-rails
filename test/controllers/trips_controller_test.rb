@@ -26,14 +26,6 @@ describe TripsController do
     end
   end
 
-  describe "new" do
-    it "should get new" do
-      get new_trip_path
-
-      must_respond_with :success
-    end
-  end
-
   describe "create" do
     it "will save a new trip and redirect if given valid inputs" do
       test_p_id = Passenger.create(name: "John Johnson", phone_num: "1234567890").id
