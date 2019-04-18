@@ -37,14 +37,12 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find_by(id: params[:id])
 
-    is_successful = trip.update(trip_params)
-
+    is_successful = @trip.update(trip_params)
     if is_successful
-      redirect_to trip_path(trip.id)
+      redirect_to passenger_path(params[:passenger_id])
     else
-      @trip = trip
       render :edit, status: :bad_request
     end
   end

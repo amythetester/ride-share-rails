@@ -9,7 +9,7 @@
 <% unrated_trip = Trip.where(passenger_id: @passenger.id, rating: nil) %>
 <% if !unrated_trip.empty? %>
   <%= form_with url: passenger_trip_path(passenger_id: @passenger.id, id: unrated_trip.first.id), method: :patch do |f| %>
-    <%= f.select :rating, choices = [1, 2, 3, 4, 5] %>
+    <%= number_field(:trip, :rating, in: 1..5, step: 1) %>
     <%= f.submit "Rate Trip", class: "rate-trip-btn" %>
   <% end %>
 <% else %>
