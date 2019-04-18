@@ -10,8 +10,12 @@ class Driver < ApplicationRecord
     trips.each do |trip|
       sum += trip.rating
     end
-    avg_rating = sum / trips.count
-    return avg_rating
+    if sum == 0
+      return "No rating recorded"
+    else
+      avg_rating = sum / trips.count
+      return avg_rating
+    end
   end
 
   def total_earnings
