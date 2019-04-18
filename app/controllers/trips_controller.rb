@@ -24,7 +24,7 @@ class TripsController < ApplicationController
       chosen_driver.first.save
       redirect_to trip_path(@trip.id)
     else
-      render :new, status: :bad_request
+      render :show, status: :bad_request
     end
   end
 
