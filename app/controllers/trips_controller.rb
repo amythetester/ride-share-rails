@@ -8,12 +8,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    offset = rand(Driver.count)
-    rand_driver = Driver.offset(offset).first
-
+    new_driver = Driver.find_by(available: true)
     @trip = Trip.new(
       date: Date.current,
-      driver_id: rand_driver.id,
+      driver_id: new_driver.id,
       passenger_id: params[:passenger_id],
       cost: rand(100..30000),
       rating: nil,
@@ -22,6 +20,7 @@ class TripsController < ApplicationController
     is_successful = @trip.save
 
     if is_successful
+      new_driver.available == false
       redirect_to trip_path(@trip.id)
     else
       render :new, status: :bad_request

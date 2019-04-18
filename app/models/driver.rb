@@ -8,6 +8,9 @@ class Driver < ApplicationRecord
     sum = 0
     trips = Trip.where(driver_id: self.id)
     trips.each do |trip|
+      if trip.rating.nil?
+        next
+      end
       sum += trip.rating
     end
     if sum == 0
