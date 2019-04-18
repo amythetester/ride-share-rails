@@ -6,6 +6,14 @@
   <%= @driver.vin %>
 </h3>
 
+<h3>
+  <%= "Average rating: #{@driver.average_rating}" %>
+</h3>
+
+<h3>
+  <%= "Total earnings: #{@driver.total_earnings}" %>
+</h3>
+
 <ul>
 <% trips = Trip.where(driver_id: @driver.id) %>
 <% if trips %>
