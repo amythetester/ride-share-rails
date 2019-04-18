@@ -3,6 +3,10 @@
 </h2>
 
 <h3>
+  <%= "Total spending on rides: #{@passenger.total_spent}" %>
+</h3>
+
+<h3>
   <% arr = @passenger.phone_num.split("x") %>
   <% str = "" %>
   <% arr[0].each_char { |c| %>
