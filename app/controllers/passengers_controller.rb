@@ -53,6 +53,10 @@ class PassengersController < ApplicationController
     if passenger.nil?
       head :not_found
     else
+      trips = Trip.where(passenger_id: passenger.id)
+      trips.each do |trip|
+        trip.update(passenger_id: 301)
+      end
       passenger.destroy
       redirect_to passengers_path
     end
