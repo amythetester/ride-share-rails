@@ -6,9 +6,16 @@
   <%= "Total spending on rides: #{@passenger.total_spent}" %>
 </h3>
 
-<p>
+<% unrated_trip = Trip.where(passenger_id: @passenger.id, rating: nil) %>
+<% if !unrated_trip.empty? %>
+  <%= form_with url: passenger_trip_path(passenger_id: @passenger.id, id: unrated_trip.first.id), method: :patch do |f| %>
+    <%= f.select :rating, choices = [1, 2, 3, 4, 5] %>
+    <%= f.submit "Rate Trip", class: "rate-trip-btn" %>
+  <% end %>
+<% else %>
   <%= button_to "Request Trip", passenger_trips_path(@passenger.id), method: :post %>
-</p>
+<% end %>
+
 
 <h3>
   <% arr = @passenger.phone_num.split("x") %>
@@ -40,6 +47,8 @@
       <%= Passenger.find_by(id: trip.passenger_id).name %>
       <%= trip.cost %>
       <%= trip.rating %>
+      <%= link_to "Edit", edit_passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :get %>
+      <%= link_to "Delete", passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :delete %> 
     </li>
   <% end %>
 <% end %>
@@ -48,7 +57,5 @@
 <%= link_to "Back to All Passengers", passengers_path %>
 
 <%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
-
-<%# link_to "Add new trip", new_passenger_trip_path(@passenger.id) %>
 
 <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
