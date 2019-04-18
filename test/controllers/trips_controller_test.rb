@@ -36,20 +36,17 @@ describe TripsController do
 
   describe "create" do
     it "will save a new trip and redirect if given valid inputs" do
-      test_input = {
-        "trip": {
-          passenger_id: Passenger.create(name: "John Johnson", phone_num: "1234567890").id,
-        },
-      }
+      test_p_id = Passenger.create(name: "John Johnson", phone_num: "1234567890").id
 
       expect {
-        post trips_path, params: test_input
+        post passenger_trips_path(test_p_id)
       }.must_change "Trip.count", 1
 
-      new_trip = Trip.find_by(date: Date.current)
+      new_trip = Trip.find_by(passenger_id: test_p_id)
       expect(new_trip).wont_be_nil
       expect(new_trip.date).must_equal Date.current
-      expect(new_trip.cost).must_be Integer
+      expect(new_trip.passenger_id).must_equal test_p_id
+      expect(new_trip.cost).must_be_kind_of Integer
 
       must_respond_with :redirect
     end
