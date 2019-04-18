@@ -6,7 +6,7 @@ class Passenger < ApplicationRecord
 
   def total_spent
     sum = 0
-    trips = Trip.where(id: self.id)
+    trips = Trip.where(passenger_id: self.id)
     trips.each do |trip|
       sum += trip.cost
     end

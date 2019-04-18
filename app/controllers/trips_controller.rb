@@ -20,7 +20,16 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    offset = rand(Driver.count)
+    rand_driver = Driver.offset(offset).first
+
+    @trip = Trip.new(
+      date: Date.current,
+      driver_id: rand_driver.id,
+      passenger_id: params[:passenger_id],
+      cost: rand(100..30000),
+      rating: nil,
+    )
 
     is_successful = @trip.save
 

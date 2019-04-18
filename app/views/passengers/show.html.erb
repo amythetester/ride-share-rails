@@ -6,6 +6,10 @@
   <%= "Total spending on rides: #{@passenger.total_spent}" %>
 </h3>
 
+<p>
+  <%= button_to "Request Trip", passenger_trips_path(@passenger.id), method: :post %>
+</p>
+
 <h3>
   <% arr = @passenger.phone_num.split("x") %>
   <% str = "" %>
@@ -43,6 +47,8 @@
 
 <%= link_to "Back to All Passengers", passengers_path %>
 
-<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+<%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
 
-<%= link_to "Delete", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
+<%# link_to "Add new trip", new_passenger_trip_path(@passenger.id) %>
+
+<%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>

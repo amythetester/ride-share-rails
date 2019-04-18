@@ -1,13 +1,6 @@
 require "test_helper"
 
 describe TripsController do
-  describe "index" do
-    it "should get index" do
-      get trips_path
-      must_respond_with :success
-    end
-  end
-
   describe "show" do
     it "should be OK to show an existing, valid trip" do
       test_p = Passenger.create(name: "test passenger", phone_num: "206-xxx-xxxx")
@@ -43,31 +36,20 @@ describe TripsController do
 
   describe "create" do
     it "will save a new trip and redirect if given valid inputs" do
-      # Arrange
-      input_date = Date.parse("2019-01-02")
-      input_cost = 1000
-      input_rating = 4
       test_input = {
         "trip": {
-          date: input_date,
-          driver_id: Driver.create(name: "Susan Hill", vin: "0987654321").id,
           passenger_id: Passenger.create(name: "John Johnson", phone_num: "1234567890").id,
-          cost: input_cost,
-          rating: input_rating,
         },
       }
 
-      # Act
       expect {
         post trips_path, params: test_input
       }.must_change "Trip.count", 1
 
-      # Assert
-      new_trip = Trip.find_by(date: input_date)
+      new_trip = Trip.find_by(date: Date.current)
       expect(new_trip).wont_be_nil
-      expect(new_trip.date).must_equal input_date
-      expect(new_trip.cost).must_equal input_cost
-      expect(new_trip.rating).must_equal input_rating
+      expect(new_trip.date).must_equal Date.current
+      expect(new_trip.cost).must_be Integer
 
       must_respond_with :redirect
     end
