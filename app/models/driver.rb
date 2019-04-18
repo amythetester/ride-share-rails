@@ -5,20 +5,18 @@ class Driver < ApplicationRecord
   validates :vin, presence: true, uniqueness: true
 
   def average_rating
-    sum = 0
+    sum_ratings = 0
+    num_trips = 0
     trips = Trip.where(driver_id: self.id)
     trips.each do |trip|
       if trip.rating.nil?
         next
       end
-      sum += trip.rating
+      sum_ratings += trip.rating
+      num_trips += 1
     end
-    if sum == 0
-      return "No rating recorded"
-    else
-      avg_rating = sum / trips.count
-      return avg_rating
-    end
+
+    return sum_ratings == 0 ? "No rating recorded" : sum_ratings / num_trips
   end
 
   def total_earnings
