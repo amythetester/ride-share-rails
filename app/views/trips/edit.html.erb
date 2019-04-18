@@ -8,10 +8,10 @@
   <%= f.text_field :date %>
 
   <%= f.label :driver_id %>
-  <%= f.text_field :driver_id %>
+  <%= f.select :driver_id, Driver.all.map {|d| [d.name, d.id] } %>
   
   <%= f.label :passenger_id %>
-  <%= f.text_field :passenger_id %>
+  <%= f.select :passenger_id, Passenger.all.map {|p| [p.name, p.id] } %>
 
   <%= f.label :cost %>
   <%= f.text_field :cost %>
