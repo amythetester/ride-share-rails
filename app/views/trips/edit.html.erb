@@ -1,0 +1,24 @@
+<h2>Form for editing an existing Trip</h2>
+
+<%= form_with model: @trip, class: "edit-trip" do |f| %>
+
+  <p><%= "Use this form to edit this trip #{@trip.id} info!" %></p>
+
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+
+  <%= f.label :driver_id %>
+  <%= f.text_field :driver_id %>
+  
+  <%= f.label :passenger_id %>
+  <%= f.text_field :passenger_id %>
+
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.submit "Edit Trip", class: "trip-form__submit-btn" %>
+
+<% end %>

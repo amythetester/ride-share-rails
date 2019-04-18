@@ -40,7 +40,7 @@ class TripsController < ApplicationController
 
     is_successful = @trip.update(trip_params)
     if is_successful
-      redirect_to passenger_path(params[:passenger_id])
+      redirect_to trip_path(params[:id])
     else
       render :edit, status: :bad_request
     end
