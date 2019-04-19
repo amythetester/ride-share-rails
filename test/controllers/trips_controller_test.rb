@@ -12,15 +12,17 @@ describe TripsController do
         driver_id: test_d.id,
       )
 
-      get trip_path(trip.id)
+      get passenger_trip_path(test_p.id, trip.id)
+      get driver_trip_path(test_d.id, trip.id)
 
       must_respond_with :success
     end
 
     it "should give a 404 when giving an invalid trip id" do
+      test_p = Passenger.create(name: "test passenger", phone_num: "206-xxx-xxxx")
       invalid_trip_id = 10000
 
-      get trip_path(invalid_trip_id)
+      get passenger_trip_path(test_p.id, invalid_trip_id)
 
       must_respond_with :not_found
     end
@@ -74,7 +76,8 @@ describe TripsController do
       test_d = Driver.create(name: "test driver", vin: "ABC3456")
       trip = Trip.create(
         date: "2019-03-05",
-        rating: 4, cost: 1234,
+        rating: 4,
+        cost: 1234,
         passenger_id: test_p.id,
         driver_id: test_d.id,
       )
@@ -84,7 +87,13 @@ describe TripsController do
     end
 
     it "should respond with 404 if the trip doesn't exist" do
-      get edit_trip_path(-1)
+      test_p = Passenger.create(name: "test passenger", phone_num: "206-xxx-xxxx")
+      test_d = Driver.create(name: "test driver", vin: "ABC3456")
+      get edit_passenger_trip_path(test_p.id, -1)
+
+      must_respond_with :not_found
+
+      get edit_driver_trip_path(test_d.id, -1)
 
       must_respond_with :not_found
     end

@@ -22,7 +22,13 @@ class TripsController < ApplicationController
     if is_successful
       chosen_driver.first.available = false
       chosen_driver.first.save
-      redirect_to trip_path(@trip.id)
+      if params[:passenger_id]
+        redirect_to passenger_trip_path(params[:passenger_id], @trip.id)
+      end
+
+      if params[:driver_id]
+        redirect_to driver_trip_path(params[:driver_id], @trip.id)
+      end
     else
       render :show, status: :bad_request
     end
@@ -41,7 +47,15 @@ class TripsController < ApplicationController
 
     is_successful = @trip.update(trip_params)
     if is_successful
-      redirect_to trip_path(params[:id])
+      if params[:passenger_id]
+        redirect_to passenger_trip_path(params[:passenger_id])
+        return
+      end
+
+      if params[:driver_id]
+        redirect_to driver_trip_path(params[:driver_id])
+        return
+      end
     else
       render :edit, status: :bad_request
     end

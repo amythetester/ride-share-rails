@@ -1,3 +1,4 @@
+
 <ul>
   <li><%= @trip.id %></li>
   <li><%= @trip.date %></li>
@@ -7,5 +8,12 @@
   <li><%= @trip.rating %></li>
 </ul>
 
-<%= link_to "Edit Trip", edit_trip_path %>
-<%= link_to "Delete Trip", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure?" }%>
+<% if params[:passenger_id] %>
+  <%= link_to "Edit Trip", edit_passenger_trip_path %>
+  <%= link_to "Delete Trip", passenger_trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure?" }%>
+<% end %>
+
+<% if params[:driver_id] %>
+  <%= link_to "Edit Trip", edit_driver_trip_path %>
+  <%= link_to "Delete Trip", driver_trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure?" }%>
+<% end %>
