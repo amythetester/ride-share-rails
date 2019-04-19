@@ -3,6 +3,7 @@ class Driver < ApplicationRecord
 
   validates :name, presence: true
   validates :vin, presence: true, uniqueness: true
+  validates :available, presence: true
 
   def average_rating
     sum_ratings = 0

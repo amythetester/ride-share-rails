@@ -44,30 +44,6 @@ describe TripsController do
 
       must_respond_with :redirect
     end
-
-    it "will return a 400 with an invalid trip" do
-      # Arrange
-      input_date = ""
-      input_cost = 1000
-      input_rating = 4
-      test_input = {
-        "trip": {
-          date: input_date,
-          driver_id: Driver.create(name: "Susan Hill", vin: "0987654321").id,
-          passenger_id: Passenger.create(name: "John Johnson", phone_num: "1234567890").id,
-          cost: input_cost,
-          rating: input_rating,
-        },
-      }
-
-      # Act
-      expect {
-        post trips_path, params: test_input
-      }.wont_change "Trip.count"
-
-      # Assert
-      must_respond_with :bad_request
-    end
   end
 
   describe "edit" do
@@ -121,7 +97,11 @@ describe TripsController do
       }
 
       expect {
-        patch trip_path(trip_to_update.id), params: test_input
+        patch passenger_trip_path(trip_to_update.passenger_id, trip_to_update.id), params: test_input
+      }.wont_change "Trip.count"
+
+      expect {
+        patch driver_trip_path(trip_to_update.driver_id, trip_to_update.id), params: test_input
       }.wont_change "Trip.count"
 
       must_respond_with :redirect
@@ -150,19 +130,19 @@ describe TripsController do
         },
       }
 
-      # Act
       expect {
-        patch trip_path(trip_to_update.id), params: test_input
+        patch passenger_trip_path(trip_to_update.passenger_id, trip_to_update.id), params: test_input
       }.wont_change "Trip.count"
 
-      # Assert
+      expect {
+        patch driver_trip_path(trip_to_update.driver_id, trip_to_update.id), params: test_input
+      }.wont_change "Trip.count"
+
       must_respond_with :bad_request
       trip_to_update.reload
       expect(trip_to_update.date).must_equal starter_input[:date]
       expect(trip_to_update.cost).must_equal starter_input[:cost]
     end
-
-    # edge case: it should render a 404 if the book was not found
   end
 
   describe "destroy" do

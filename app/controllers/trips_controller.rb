@@ -8,10 +8,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    chosen_driver = Driver.where(available: true).sample(1)
+    chosen_drivers = Driver.where(available: true).sample(1)
     @trip = Trip.new(
       date: Date.current,
-      driver_id: chosen_driver.first.id,
+      driver_id: chosen_drivers.first.id,
       passenger_id: params[:passenger_id],
       cost: rand(100..30000),
       rating: nil,
@@ -20,8 +20,8 @@ class TripsController < ApplicationController
     is_successful = @trip.save
 
     if is_successful
-      chosen_driver.first.available = false
-      chosen_driver.first.save
+      chosen_drivers.first.available = false
+      chosen_drivers.first.save
       if params[:passenger_id]
         redirect_to passenger_trip_path(params[:passenger_id], @trip.id)
       end
@@ -29,8 +29,6 @@ class TripsController < ApplicationController
       if params[:driver_id]
         redirect_to driver_trip_path(params[:driver_id], @trip.id)
       end
-    else
-      render :show, status: :bad_request
     end
   end
 

@@ -3,35 +3,27 @@ require "test_helper"
 describe DriversController do
   describe "index" do
     it "can get index" do
-      # Act
       get drivers_path
 
-      # Assert
       must_respond_with :success
     end
   end
 
   describe "show" do
     it "should be OK to show an existing, valid driver" do
-      # Arrange
-      driver = Driver.create(name: "Amy Wyatt", vin: "1234567890")
+      driver = Driver.create(name: "Amy Wyatt", vin: "1234567890", available: true)
       valid_driver_id = driver.id
 
-      # Act
       get driver_path(valid_driver_id)
 
-      # Assert
       must_respond_with :success
     end
 
     it "should give a 404 instead of showing a non-existant, invalid driver" do
-      # Arrange
       invalid_driver_id = 999
 
-      # Act
       get driver_path(invalid_driver_id)
 
-      # Assert
       must_respond_with :not_found
     end
   end
@@ -49,10 +41,12 @@ describe DriversController do
       # Arrange
       input_name = "John Smith"
       input_vin = "7584938476"
+      input_available = true
       test_input = {
         "driver": {
           name: input_name,
           vin: input_vin,
+          available: input_available,
         },
       }
 
@@ -66,11 +60,12 @@ describe DriversController do
       expect(new_driver).wont_be_nil
       expect(new_driver.name).must_equal input_name
       expect(new_driver.vin).must_equal input_vin
+      expect(new_driver.available).must_equal true
 
       must_respond_with :redirect
     end
 
-    it "will return a 400 with an invalid book" do
+    it "will return a 400 with an invalid driver" do
       # Arrange
       input_name = ""
       input_vin = "0987654321"
@@ -78,6 +73,7 @@ describe DriversController do
         "driver": {
           name: input_name,
           vin: input_vin,
+          available: true,
         },
       }
 
@@ -121,6 +117,7 @@ describe DriversController do
         "driver": {
           name: input_name,
           vin: input_vin,
+          available: true,
         },
       }
 
@@ -134,6 +131,7 @@ describe DriversController do
       driver_to_update.reload
       expect(driver_to_update.name).must_equal test_input[:driver][:name]
       expect(driver_to_update.vin).must_equal test_input[:driver][:vin]
+      expect(driver_to_update.available).must_equal true
     end
 
     it "will return a bad_request (400) when asked to update with invalid data" do
@@ -141,6 +139,7 @@ describe DriversController do
       starter_input = {
         name: "Sue Zan",
         vin: "0987654321",
+        available: true,
       }
 
       driver_to_update = Driver.create(starter_input)
@@ -164,9 +163,8 @@ describe DriversController do
       driver_to_update.reload
       expect(driver_to_update.name).must_equal starter_input[:name]
       expect(driver_to_update.vin).must_equal starter_input[:vin]
+      expect(driver_to_update.available).must_equal true
     end
-
-    # edge case: it should render a 404 if the book was not found
   end
 
   describe "destroy" do
@@ -183,16 +181,11 @@ describe DriversController do
       must_respond_with :not_found
     end
 
-    it "can delete a book" do
-      # Arrange - Create a book
+    it "can delete a driver" do
       new_driver = Driver.create(name: "David Tuo", vin: "7684938476")
 
       expect {
-
-        # Act
         delete driver_path(new_driver.id)
-
-        # Assert
       }.must_change "Driver.count", -1
 
       must_respond_with :redirect
