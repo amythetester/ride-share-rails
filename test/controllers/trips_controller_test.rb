@@ -147,11 +147,13 @@ describe TripsController do
 
   describe "destroy" do
     it "returns a 404 if the trip is not found" do
+      test_p = Passenger.create(name: "test name", phone_num: "test phone num")
+
       invalid_id = "NOT A VALID ID"
 
       expect {
         # Act
-        delete trip_path(invalid_id)
+        delete passenger_trip_path(passenger_id: test_p.id, id: invalid_id)
         # Assert
       }.wont_change "Trip.count"
 
@@ -168,13 +170,12 @@ describe TripsController do
       )
 
       expect {
-        delete trip_path(new_trip.id)
+        delete passenger_trip_path(new_trip.passenger_id, new_trip.id)
 
         # Assert
       }.must_change "Trip.count", -1
 
       must_respond_with :redirect
-      must_redirect_to root_path
     end
   end
 end
