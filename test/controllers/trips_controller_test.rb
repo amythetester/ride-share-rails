@@ -70,9 +70,15 @@ describe TripsController do
 
   describe "edit" do
     it "should get edit" do
-      driver_id: chosen_driver.first.id,
-      passenger_id: params[:passenger_id],
-      get edit_passenger_trip_path(passenger_id: Trip.first.passenger_id, id: Trip.first.id)
+      test_p = Passenger.create(name: "test passenger", phone_num: "206-xxx-xxxx")
+      test_d = Driver.create(name: "test driver", vin: "ABC3456")
+      trip = Trip.create(
+        date: "2019-03-05",
+        rating: 4, cost: 1234,
+        passenger_id: test_p.id,
+        driver_id: test_d.id,
+      )
+      get edit_passenger_trip_path(passenger_id: trip.passenger_id, id: trip.id)
 
       must_respond_with :success
     end
