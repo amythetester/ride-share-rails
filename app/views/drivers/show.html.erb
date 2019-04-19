@@ -25,8 +25,8 @@
     <li>
       <%= link_to trip.id,  driver_trip_path(@driver.id, trip.id) %>
       <%= trip.date %>
-      <%= Driver.find_by(id: trip.driver_id).name %>
-      <%= Passenger.find_by(id: trip.passenger_id).name %>
+      <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(@driver.id) %>
+      <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(Passenger.find_by(id: trip.passenger_id).id) %>
       <%= trip.cost %>
       <%= trip.rating %>
       <%= link_to "Edit", edit_driver_trip_path(driver_id: @driver.id, id: trip.id), method: :get %>
