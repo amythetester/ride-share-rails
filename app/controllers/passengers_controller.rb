@@ -55,7 +55,7 @@ class PassengersController < ApplicationController
     else
       trips = Trip.where(passenger_id: passenger.id)
       trips.each do |trip|
-        trip.update(passenger_id: 301)
+        trip.update(passenger_id: 0)
       end
       passenger.destroy
       redirect_to passengers_path
