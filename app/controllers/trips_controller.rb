@@ -53,8 +53,18 @@ class TripsController < ApplicationController
     if trip.nil?
       head :not_found
     else
+      passenger_id = trip.passenger_id
+      driver_id = trip.driver_id
+      url = request.original_url
       trip.destroy
-      redirect_back fallback_location: root_path
+
+      if url.include? "passengers"
+        redirect_back fallback_location: passenger_path(passenger_id)
+      elsif url.include? "drivers"
+        redirect_back fallback_location: driver_path(driver_id)
+      else
+        redirect_to passenger_path(passenger_id)
+      end
     end
   end
 
