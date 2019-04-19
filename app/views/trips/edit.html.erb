@@ -11,7 +11,7 @@
   <%= f.select :driver_id, Driver.all.map { |d| [d.name, d.id] } %>
   
   <%= f.label :passenger_id %>
-  <%= f.select :passenger_id, [Passenger.find(params[:passenger_id]).name] %>
+  <%= f.select :passenger_id, [Passenger.find(Trip.find_by(id: params[:id]).passenger_id).name] %>
 
   <%= f.label :cost %>
   <%= f.text_field :cost %>
