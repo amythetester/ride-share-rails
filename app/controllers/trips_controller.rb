@@ -42,6 +42,14 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
 
     is_successful = @trip.update(trip_params)
+    driver = Driver.find_by(id: @trip.driver_id)
+
+    if @trip.rating.nil?
+      driver.update_attribute(:available, false)
+    else
+      driver.update_attribute(:available, true)
+    end
+
     if is_successful
       if params[:passenger_id]
         redirect_to passenger_trip_path(params[:passenger_id])
