@@ -19,8 +19,8 @@ class TripsController < ApplicationController
     is_successful = @trip.save
 
     if is_successful
-      chosen_drivers.first.available = false
-      chosen_drivers.first.save
+      chosen_drivers.first.update_attribute(:available, false)
+
       if params[:passenger_id]
         redirect_to passenger_trip_path(params[:passenger_id], @trip.id)
       end
