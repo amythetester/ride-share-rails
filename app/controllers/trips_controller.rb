@@ -53,13 +53,7 @@ class TripsController < ApplicationController
         return
       end
     else
-      if params[:passenger_id]
-        render :edit, status: :bad_request
-      end
-
-      if params[:driver_id]
-        render :edit, status: :bad_request
-      end
+      render :edit, status: :bad_request
     end
   end
 
@@ -74,10 +68,8 @@ class TripsController < ApplicationController
       url = request.original_url
       trip.destroy
 
-      if url.include? "passengers"
-        redirect_back fallback_location: passenger_path(passenger_id)
-      elsif url.include? "drivers"
-        redirect_back fallback_location: driver_path(driver_id)
+      if url.include? "drivers"
+        redirect_to driver_path(driver_id)
       else
         redirect_to passenger_path(passenger_id)
       end
