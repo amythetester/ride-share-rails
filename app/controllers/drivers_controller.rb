@@ -13,7 +13,7 @@ class DriversController < ApplicationController
   end
 
   def new
-    @driver = Driver.new(name: "Default Name")
+    @driver = Driver.new
   end
 
   def create
