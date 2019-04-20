@@ -1,7 +1,6 @@
 class TripsController < ApplicationController
   def show
-    trip_id = params[:id]
-    @trip = Trip.find_by(id: trip_id)
+    @trip = Trip.find_by(id: params[:id])
     if @trip.nil?
       head :not_found
     end
@@ -34,7 +33,6 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find_by(id: params[:id])
-
     if @trip.nil?
       head :not_found
     end
@@ -55,7 +53,13 @@ class TripsController < ApplicationController
         return
       end
     else
-      render :edit, status: :bad_request
+      if params[:passenger_id]
+        render :edit, status: :bad_request
+      end
+
+      if params[:driver_id]
+        render :edit, status: :bad_request
+      end
     end
   end
 

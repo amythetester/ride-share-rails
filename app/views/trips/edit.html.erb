@@ -1,52 +1,36 @@
 <h2>Form for editing an existing Trip</h2>
 
-<% if params[:passenger_id] %>
-  <%= form_with url: passenger_trip_path(params[:passenger_id], params[:id]), method: :patch, class: "edit-trip" do |f| %>
-
-    <p><%= "Use this form to edit this trip #{@trip.id} info!" %></p>
-
-    <%= f.label :date %>
-    <%= f.text_field :date, value: @trip.date %>
-
-    <%= f.label :driver_id %>
-    <%= f.select :driver_id, Driver.all.map { |d| [d.name, d.id] } %>
-    
-    <%= f.label :passenger_id %>
-    <%= f.select :passenger_id, [Passenger.find(Trip.find_by(id: params[:id]).passenger_id).name] %>
-
-    <%= f.label :cost %>
-    <%= f.text_field :cost, value: @trip.cost %>
-
-    <%= f.label :rating %>
-    <%= number_field(:trip, :rating, in: 1..5, step: 1) %>
-
-    <%= f.submit "Update Trip", class: "trip-form__submit-btn" %>
-
-  <% end %>
+<% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
 
-<% if params[:driver_id] %>
+<%= form_with scope: @trip, url: passenger_trip_path(params[:passenger_id], params[:id]), method: :patch, class: "edit-trip" do |f| %>
 
-  <%= form_with url: driver_trip_path(params[:driver_id], params[:id]), method: :patch, class: "edit-trip" do |f| %>
+  <p><%= "Use this form to edit this trip #{@trip.id} info!" %></p>
 
-    <p><%= "Use this form to edit this trip #{@trip.id} info!" %></p>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
 
-    <%= f.label :date %>
-    <%= f.text_field :date, value: @trip.date %>
+  <%= f.label :driver_id %>
+  <%= f.select :driver_id, Driver.all.map { |d| [d.name, d.id] } %>
+  
+  <%= f.label :passenger_id %>
+  <%= f.select :passenger_id, options_for_select([[Passenger.find_by(id: @trip.passenger_id).name, @trip.passenger_id]], selected: @trip.passenger_id || nil) %>
 
-    <%= f.label :driver_id %>
-    <%= f.select :driver_id, Driver.all.map { |d| [d.name, d.id] } %>
-    
-    <%= f.label :passenger_id %>
-    <%= f.select :passenger_id, [Passenger.find(Trip.find_by(id: params[:id]).passenger_id).name] %>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
 
-    <%= f.label :cost %>
-    <%= f.text_field :cost, value: @trip.cost %>
+  <%= f.label :rating %>
+  <%= number_field(:trip, :rating, in: 1..5, step: 1) %>
 
-    <%= f.label :rating %>
-    <%= number_field(:trip, :rating, in: 1..5, step: 1) %>
+  <%= f.submit "Update Trip", class: "trip-form__submit-btn" %>
 
-    <%= f.submit "Update Trip", class: "trip-form__submit-btn" %>
-
-  <% end %>
 <% end %>
+
+
