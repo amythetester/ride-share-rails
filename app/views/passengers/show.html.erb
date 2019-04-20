@@ -3,7 +3,7 @@
 </h2>
 
 <h3>
-  <%= "Total spending on rides: #{@passenger.total_spent}" %>
+  Total spending on rides: <%= number_to_currency(@passenger.total_spent / 100.00, precision: 2, unit: "$") %>
 </h3>
 
 <% unrated_trip = Trip.where(passenger_id: @passenger.id, rating: nil) %>
@@ -45,7 +45,7 @@
       <%= trip.date %>
       <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(Driver.find_by(id: trip.driver_id).id) %>
       <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(@passenger.id) %>
-      <%= trip.cost %>
+      <%= number_to_currency(trip.cost / 100.00, precision: 2, unit: "$") %>
       <%= trip.rating %>
       <%= link_to "Edit", edit_passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :get %>
       <%= link_to "Delete", passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :delete %> 

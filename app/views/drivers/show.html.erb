@@ -7,15 +7,15 @@
 </h3>
 
 <h3>
-  <%= @driver.available %>
+  Status: <%= @driver.available ? "Available" : "Unavailable" %>
 </h3>
 
 <h3>
-  <%= "Average rating: #{@driver.average_rating}" %>
+  <%= "Average rating: #{@driver.average_rating} stars" %>
 </h3>
 
 <h3>
-  <%= "Total earnings: #{@driver.total_earnings}" %>
+  Total earnings: <%= number_to_currency(@driver.total_earnings/100.00, precision: 2, unit: "$") %>
 </h3>
 
 <ul>
@@ -27,7 +27,7 @@
       <%= trip.date %>
       <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(@driver.id) %>
       <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(Passenger.find_by(id: trip.passenger_id).id) %>
-      <%= trip.cost %>
+      <%= number_to_currency(trip.cost/100.00, precision: 2, unit: "$") %>
       <%= trip.rating %>
       <%= link_to "Edit", edit_passenger_trip_path(trip.passenger_id, trip.id), method: :get %>
       <%= link_to "Delete", driver_trip_path(@driver.id, trip.id), method: :delete %> 

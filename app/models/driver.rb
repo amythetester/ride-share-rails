@@ -17,7 +17,7 @@ class Driver < ApplicationRecord
       num_trips += 1
     end
 
-    return sum_ratings == 0 ? "No rating recorded" : sum_ratings / num_trips
+    return sum_ratings == 0 ? "No rating recorded" : sum_ratings.to_f / num_trips.to_f
   end
 
   def total_earnings

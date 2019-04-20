@@ -4,7 +4,7 @@
   <li><%= @trip.date %></li>
   <li><%= link_to Driver.find_by(id: @trip.driver_id).name, driver_path(id: @trip.driver_id) %></li>
   <li><%= link_to Passenger.find_by(id: @trip.passenger_id).name, passenger_path(id: @trip.passenger_id) %></li>
-  <li><%= @trip.cost %></li>
+  <li><%= number_to_currency(@trip.cost / 100.00, precision: 2, unit: "$") %></li>
   <li><%= @trip.rating %></li>
 </ul>
 
