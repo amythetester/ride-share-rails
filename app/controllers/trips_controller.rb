@@ -7,7 +7,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    chosen_drivers = Driver.where(available: true).sample(1)
+    chosen_drivers = Driver.where.not(name: "Unknown Driver", available: false).sample(1)
     @trip = Trip.new(
       date: Date.current,
       driver_id: chosen_drivers.first.id,
