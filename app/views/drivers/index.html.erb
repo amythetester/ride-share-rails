@@ -2,9 +2,11 @@
 
 <ul>
 <% @drivers.each do |driver| %>
-  <li>
-    <%= link_to driver.name, driver_path(driver.id) %>
-    VIN <%= driver.vin %>
-  </li>
+  <% if driver.name != "Unknown Driver" %>
+    <li>
+      <%= link_to driver.name, driver_path(driver.id) %>
+      VIN <%= driver.vin %>
+    </li>
+  <% end %>
 <% end %>
 </ul>
