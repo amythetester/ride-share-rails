@@ -65,8 +65,12 @@
 <% end %>
 </ul>
 
+
+<% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
+  <%= link_to "Back to All Passengers", passengers_path %>
+<% end %>
+
 <%= link_to "Back to All Passengers", passengers_path %>
-<%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
 
 <% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
   <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
