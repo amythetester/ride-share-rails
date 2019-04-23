@@ -26,13 +26,13 @@
       <%= link_to trip.id,  driver_trip_path(@driver.id, trip.id) %>
       <%= trip.date %>
       
-      <% if Driver.find_by(id: trip.driver_id).name == " Unknown Driver"%>
+      <% if Driver.find_by(id: trip.driver_id).name == "Unknown Driver"%>
         Unknown Driver
       <% else %>
         <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(id: trip.driver_id) %>
       <% end %>
 
-      <% if Passenger.find_by(id: trip.passenger_id).name == " Unknown Passenger"%>
+      <% if Passenger.find_by(id: trip.passenger_id).name == "Unknown Passenger"%>
         Unknown Passenger
       <% else %>
         <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(id: trip.passenger_id) %>
@@ -50,7 +50,7 @@
 <%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
 <%= link_to "Back to All Drivers", drivers_path %>
 
-<% if Driver.find_by(id: @driver.id).name != " Unknown Driver"%>
+<% if Driver.find_by(id: @driver.id).name != "Unknown Driver"%>
   <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure?" }%>
 <% end %>
 
