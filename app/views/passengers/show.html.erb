@@ -43,8 +43,19 @@
     <li>
       <%= link_to trip.id,  passenger_trip_path(@passenger.id, trip.id) %>
       <%= trip.date %>
-      <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(Driver.find_by(id: trip.driver_id).id) %>
-      <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(@passenger.id) %>
+      
+      <% if Driver.find_by(id: trip.driver_id).name == "Unknown Driver"%>
+        Unknown Driver
+      <% else %>
+        <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(id: trip.driver_id) %>
+      <% end %>
+
+      <% if Passenger.find_by(id: trip.passenger_id).name == "Unknown Passenger"%>
+        Unknown Passenger
+      <% else %>
+        <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(id: trip.passenger_id) %>
+      <% end %>
+      
       <%= number_to_currency(trip.cost / 100.00, precision: 2, unit: "$") %>
       <%= trip.rating %>
       <%= link_to "Edit", edit_passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :get %>
@@ -55,7 +66,9 @@
 </ul>
 
 <%= link_to "Back to All Passengers", passengers_path %>
-
 <%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
 
-<%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
+<% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
+  <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
+<% end %>
+
