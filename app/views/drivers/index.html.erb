@@ -1,12 +1,17 @@
 <h2>Driver Page</h2>
 
-<ul>
-<% @drivers.each do |driver| %>
-  <% if driver.name != "Unknown Driver" %>
-    <li>
-      <%= link_to driver.name, driver_path(driver.id) %>
-      VIN <%= driver.vin %>
-    </li>
+<table>
+  <tr>
+    <th>Driver Name</th>
+    <th>VIN Number</th>
+  </tr>
+
+  <% @drivers.each do |driver| %>
+    <% if driver.name != "Unknown Driver" %>
+      <tr>
+        <td><%= link_to driver.name, driver_path(driver.id) %></td>
+        <td>VIN <%= driver.vin %></td>
+      </tr>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+</table>

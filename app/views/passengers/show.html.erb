@@ -16,7 +16,6 @@
   <%= button_to "Request Trip", passenger_trips_path(@passenger.id), method: :post %>
 <% end %>
 
-
 <h3>
   <% arr = @passenger.phone_num.split("x") %>
   <% str = "" %>
@@ -36,43 +35,64 @@
   <% end %>
 </h3>
 
-<ul>
-<% trips = Trip.where(passenger_id: @passenger.id) %>
-<% if trips %>
-  <% trips.each do |trip| %>
-    <li>
-      <%= link_to trip.id,  passenger_trip_path(@passenger.id, trip.id) %>
-      <%= trip.date %>
-      
-      <% if Driver.find_by(id: trip.driver_id).name == "Unknown Driver"%>
-        Unknown Driver
-      <% else %>
-        <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(id: trip.driver_id) %>
-      <% end %>
+<table>
+  <tr>
+    <th>Trip ID</th>
+    <th>Trip Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Cost</th>
+    <th>Rating</th>
+  </tr>
 
-      <% if Passenger.find_by(id: trip.passenger_id).name == "Unknown Passenger"%>
-        Unknown Passenger
-      <% else %>
-        <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(id: trip.passenger_id) %>
-      <% end %>
+  <% trips = Trip.where(passenger_id: @passenger.id) %>
+  <% if trips %>
+    <% trips.each do |trip| %>
+      <tr>
+        <td><%= link_to trip.id,  passenger_trip_path(@passenger.id, trip.id) %></td>
+        <td><%= trip.date %></td>
+        
+        <td>
+          <% if Driver.find_by(id: trip.driver_id).name == "Unknown Driver"%>
+            Unknown Driver
+          <% else %>
+            <%= link_to Driver.find_by(id: trip.driver_id).name, driver_path(id: trip.driver_id) %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if Passenger.find_by(id: trip.passenger_id).name == "Unknown Passenger"%>
+            Unknown Passenger
+          <% else %>
+            <%= link_to Passenger.find_by(id: trip.passenger_id).name, passenger_path(id: trip.passenger_id) %>
+          <% end %>
+        </td>
       
-      <%= number_to_currency(trip.cost / 100.00, precision: 2, unit: "$") %>
-      <%= trip.rating %>
-      <%= link_to "Edit", edit_passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :get %>
-      <%= link_to "Delete", passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :delete %> 
-    </li>
+        <td><%= number_to_currency(trip.cost / 100.00, precision: 2, unit: "$") %></td>
+        <td><%= trip.rating %></td>
+
+        <td><%= link_to "Edit", edit_passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :get %></td>
+        <td><%= link_to "Delete", passenger_trip_path(passenger_id: @passenger.id, id: trip.id), method: :delete %></td>
+      </tr>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+</table>
 
+<footer>
+  <button>
+    <% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
+      <%= link_to "Edit Passenger", edit_passenger_path %>
+    <% end %>
+  </button>
 
-<% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
-  <%= link_to "Back to All Passengers", passengers_path %>
-<% end %>
+  <button>
+    <%= link_to "Back to All Passengers", passengers_path %>
+  </button>
 
-<%= link_to "Back to All Passengers", passengers_path %>
-
-<% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
-  <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
-<% end %>
+  <button>
+    <% if Passenger.find_by(id: @passenger.id).name != "Unknown Passenger"%>
+      <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </button>
+</footer>
 
