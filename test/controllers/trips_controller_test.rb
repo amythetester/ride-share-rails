@@ -76,7 +76,7 @@ describe TripsController do
   end
 
   describe "update" do
-    it "will update an existing driver" do
+    it "will update an existing trip" do
       starter_input = {
         date: Date.parse("2019-05-04"),
         driver_id: Driver.create(name: "test name", vin: "test vin").id,
@@ -98,10 +98,6 @@ describe TripsController do
 
       expect {
         patch passenger_trip_path(trip_to_update.passenger_id, trip_to_update.id), params: test_input
-      }.wont_change "Trip.count"
-
-      expect {
-        patch driver_trip_path(trip_to_update.driver_id, trip_to_update.id), params: test_input
       }.wont_change "Trip.count"
 
       must_respond_with :redirect
@@ -132,10 +128,6 @@ describe TripsController do
 
       expect {
         patch passenger_trip_path(trip_to_update.passenger_id, trip_to_update.id), params: test_input
-      }.wont_change "Trip.count"
-
-      expect {
-        patch driver_trip_path(trip_to_update.driver_id, trip_to_update.id), params: test_input
       }.wont_change "Trip.count"
 
       must_respond_with :bad_request
