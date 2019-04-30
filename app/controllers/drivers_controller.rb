@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.all.order(:name)
+    @drivers = Driver.paginate(:page => params[:page], per_page: 20).order(:name)
   end
 
   def show

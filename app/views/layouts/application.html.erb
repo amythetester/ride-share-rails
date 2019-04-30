@@ -11,14 +11,29 @@
 
   <body>
     <header>
-      <nav>
-        <ul>
-          <li> <%= link_to "A&E Rideshare", root_path %> </li>
-          <li> <%= link_to "List Drivers", drivers_path %> </li>
-          <li> <%= link_to "Add a Driver", new_driver_path %> </li>
-          <li> <%= link_to "List Passengers", passengers_path %> </li>
-          <li> <%= link_to "Add a Passenger", new_passenger_path %> </li>
-        </ul>
+      <nav class="navbar">
+        <%= link_to "A&E Rideshare", root_path %>
+        <div class="dropdown">
+          <button class="dropbtn">Drivers 
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <div class="dropdown-content">
+            <%= link_to "List Drivers", drivers_path %>
+            <%= link_to "Add a Driver", new_driver_path %>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Passengers 
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <div class="dropdown-content">
+            <%= link_to "List Passengers", passengers_path %>
+            <%= link_to "Add a Passenger", new_passenger_path %>
+          </div>
+        </div>
       </nav>
     </header>
     <%= yield %>
